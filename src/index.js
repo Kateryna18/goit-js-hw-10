@@ -28,9 +28,11 @@ function onSearch() {
             alert('Too many matches found. Please enter a more specific name.')
         } else if (countries.length >= 2 && countries.length <= 10) {
             addMarkupCountryList(countries);
-        } 
+        } else if (countries.length === 1) {
+            addMarkupcountryInfoBox(countries);
+        }
 
-        // addMarkupcountryInfoBox(countries);
+        
     }
         
         
@@ -43,9 +45,12 @@ function onSearch() {
 
 function addMarkupCountryList(countries) {
     const markupCountriesList = countries.map(country => {
-        console.log(country.name.official);
+        
+        const flagSvg = country.flags;
+        
+
         return `<li class="country-item">
-        <img src='' class="country-item-flag" alt="Flag" width="30">
+        <img src='${flagSvg[0]}' class="country-item-flag" alt="Flag" width="120">
         <p class="country-item-name">${country.name.official}</p>
       </li>`
     }
@@ -56,9 +61,28 @@ function addMarkupCountryList(countries) {
 
 }
 
-// function addMarkupcountryInfoBox(countries) {
+function addMarkupcountryInfoBox(countries) {
 
-// }
+const countryValue = countries[0];
+console.log(countryValue)
+const flagSvg = countryValue.flags;
+
+const languages = Object.values(countryValue.languages);
+console.log(languages)
+
+
+
+const markupMarkupcountryInfoBox = `<div class="country-info-head">
+        <img class = "country-info-flag" src="${flagSvg[0]}" alt="Flag of Country" width="220">
+        <h2 class="country-info-tittle">${countryValue.name.official}</h2>
+      </div>
+      <p class="country-info-capital"><strong>Capital: </strong>${countryValue.capital}</p>
+      <p class="country-info-population"><strong>Population: </strong>${countryValue.population}</p>
+      <p class="country-info-languages"><strong>Languages: </strong>${languages[0]}, ${languages[1]}</p>`
+            
+      
+    return countryInfoBox.innerHTML = markupMarkupcountryInfoBox; 
+}
 
 
 
