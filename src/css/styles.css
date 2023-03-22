@@ -18,15 +18,33 @@ ul {
   padding: 0;
 }
 
+label {
+  font-size: 26px;
+  font-weight: 400;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 5px;
+}
+
 .country-item {
   display: flex;
   margin-bottom: 10px;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
+
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
 
 }
 
+.country-info-head {
+  font-size: 22px;
+  font-family: 'Roboto', sans-serif;
+}
+
 #search-box {
+  display: block;
   font: inherit;
   padding: 8px;
   max-width: 320px;
